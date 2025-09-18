@@ -1,15 +1,17 @@
-const { asyncPool } = require('./asyncPool.js');
+// const { asyncPool } = require('./asyncPool.js');
+import { asyncPool } from "./asyncPool.js";
 
-test('runs in batches and preserves order', async () => {
-  const urls = ['a', 'b', 'c'];
+test("runs in batches and preserves order", async () => {
+  const urls = ["a", "b", "c"];
   const fetcher = (u) => Promise.resolve(`done:${u}`);
   const result = await asyncPool(urls, 2, fetcher);
-  expect(result).toEqual(['done:a', 'done:b', 'done:c']);
+  expect(result).toEqual(["done:a", "done:b", "done:c"]);
 });
 
-test('handles rejections', async () => {
-  const urls = ['a', 'b'];
-  const fetcher = (u) => (u === 'a' ? Promise.reject('fail') : Promise.resolve('ok'));
+test("handles rejections", async () => {
+  const urls = ["a", "b"];
+  const fetcher = (u) =>
+    u === "a" ? Promise.reject("fail") : Promise.resolve("ok");
   const result = await asyncPool(urls, 2, fetcher);
-  expect(result).toEqual(['fail', 'ok']);
+  expect(result).toEqual(["fail", "ok"]);
 });

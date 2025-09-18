@@ -12,8 +12,10 @@
  *   //   Ukraine: [ {..} ]
  *   // }
  */
-function groupBy(array, prop) {
-  if (!array?.length || !prop) return null;
+export function groupBy(array, prop) {
+  if (!array?.length || !prop) {
+    return null;
+  }
   const result = {};
   array.forEach((element) => {
     const existing = result[element[prop]] || [];
@@ -21,5 +23,3 @@ function groupBy(array, prop) {
   });
   return result;
 }
-
-module.exports = { groupBy };

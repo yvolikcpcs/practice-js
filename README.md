@@ -9,7 +9,7 @@ Simple, focused, and useful for anyone who wants to get better at everyday JavaS
 **asyncPool** – run async tasks with a concurrency limit:
 
 ```js
-const { asyncPool } = require("./src/js/asyncPool");
+import { asyncPool } from "./src/js/asyncPool.js";
 
 const urls = ["a", "b", "c"];
 const fetcher = (u) => Promise.resolve(`done:${u}`);
