@@ -1,4 +1,3 @@
-// const { asyncPool } = require('./asyncPool.js');
 import { asyncPool } from "./asyncPool.js";
 
 test("runs in batches and preserves order", async () => {
